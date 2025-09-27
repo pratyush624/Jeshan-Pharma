@@ -53,7 +53,7 @@ Resources:
           - jeshanpharma.com
           - www.jeshanpharma.com
         ViewerCertificate:
-          AcmCertificateArn: arn:aws:acm:us-east-1:YOUR_CERTIFICATE_ARN   # replace once Issued
+          AcmCertificateArn: arn:aws:acm:us-east-1:864981759262:certificate/b1bf1353-db29-444d-8bf4-658e01f8b2b6  # replace once Issued
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
         Origins:
