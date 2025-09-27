@@ -1,76 +1,75 @@
-# name: Deploy React App Infra + Code
+name: Deploy React App Infra + Code
 
-# on:
-#   push:
-#     branches:
-#       - main
-#       - dev
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-#       - name: Configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@v4
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           aws-region: ap-south-1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
 
-#       - name: Install AWS SAM CLI
-#         run: pip install aws-sam-cli
+      - name: Install AWS SAM CLI
+        run: pip install aws-sam-cli
 
-#       - name: Set environment
-#         id: env
-#         run: |
-#           if [[ "${GITHUB_REF##*/}" == "main" ]]; then
-#             echo "env=production" >> $GITHUB_OUTPUT
-#           else
-#             echo "env=staging" >> $GITHUB_OUTPUT
-#           fi
+      - name: Set environment
+        id: env
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            echo "env=production" >> $GITHUB_OUTPUT
+          else
+            echo "env=staging" >> $GITHUB_OUTPUT
+          fi
 
-#       - name: Deploy infrastructure
-#         run: |
-#           sam build
-#           sam deploy --stack-name react-app-${{ steps.env.outputs.env }} \
-#             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
-#             --parameter-overrides EnvName=${{ steps.env.outputs.env }} \
-#             --no-confirm-changeset \
-#             --resolve-s3
+      - name: Deploy infrastructure
+        run: |
+          sam build
+          sam deploy --stack-name react-app-${{ steps.env.outputs.env }} \
+            --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+            --parameter-overrides EnvName=${{ steps.env.outputs.env }} \
+            --no-confirm-changeset \
+            --resolve-s3
 
-#       - name: Fetch CloudFormation Outputs
-#         id: outputs
-#         run: |
-#           BUCKET=$(aws cloudformation describe-stacks \
-#             --stack-name react-app-${{ steps.env.outputs.env }} \
-#             --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
-#             --output text)
-#           DIST_ID=$(aws cloudformation describe-stacks \
-#             --stack-name react-app-${{ steps.env.outputs.env }} \
-#             --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
-#             --output text)
-#           echo "bucket=$BUCKET" >> $GITHUB_OUTPUT
-#           echo "distribution_id=$DIST_ID" >> $GITHUB_OUTPUT
+      - name: Fetch CloudFormation Outputs
+        id: outputs
+        run: |
+          BUCKET=$(aws cloudformation describe-stacks \
+            --stack-name react-app-${{ steps.env.outputs.env }} \
+            --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
+            --output text)
+          DIST_ID=$(aws cloudformation describe-stacks \
+            --stack-name react-app-${{ steps.env.outputs.env }} \
+            --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
+            --output text)
+          echo "bucket=$BUCKET" >> $GITHUB_OUTPUT
+          echo "distribution_id=$DIST_ID" >> $GITHUB_OUTPUT
 
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-#       - name: Install dependencies
-#         run: npm install
+      - name: Install dependencies
+        run: npm install
 
-#       - name: Build React App
-#         run: npm run build
+      - name: Build React App
+        run: npm run build
 
-#       - name: Deploy to S3
-#         run: aws s3 sync build/ s3://${{ steps.outputs.outputs.bucket }} --delete
+      - name: Deploy to S3
+        run: aws s3 sync build/ s3://${{ steps.outputs.outputs.bucket }} --delete
 
-#       - name: Invalidate CloudFront cache
-#         run: aws cloudfront create-invalidation \
-#           --distribution-id ${{ steps.outputs.outputs.distribution_id }} \
-#           --paths "/*"
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation \
+          --distribution-id ${{ steps.outputs.outputs.distribution_id }} \
+          --paths "/*"
