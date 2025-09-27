@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+      - dev
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+      ENV_NAME: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
 
     steps:
       - name: Checkout code
@@ -24,36 +28,31 @@ jobs:
         run: pip install aws-sam-cli
 
       - name: Set environment
-        id: env
-        run: |
-          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
-            echo "env=production" >> $GITHUB_OUTPUT
-          else
-            echo "env=staging" >> $GITHUB_OUTPUT
-          fi
+        run: echo "Deploying to $ENV_NAME"
 
       - name: Deploy infrastructure
         run: |
           sam build
-          sam deploy --stack-name react-app-${{ steps.env.outputs.env }} \
-            --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
-            --parameter-overrides EnvName=${{ steps.env.outputs.env }} \
-            --no-confirm-changeset \
-            --resolve-s3
+          sam deploy --no-confirm-changeset \
+            --stack-name react-app-${{ env.ENV_NAME }} \
+            --capabilities CAPABILITY_IAM \
+            --parameter-overrides EnvName=${{ env.ENV_NAME }} || exit 0
 
       - name: Fetch CloudFormation Outputs
         id: outputs
         run: |
-          BUCKET=$(aws cloudformation describe-stacks \
-            --stack-name react-app-${{ steps.env.outputs.env }} \
+          BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name react-app-${{ env.ENV_NAME }} \
             --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
             --output text)
-          DIST_ID=$(aws cloudformation describe-stacks \
-            --stack-name react-app-${{ steps.env.outputs.env }} \
+
+          DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
+            --stack-name react-app-${{ env.ENV_NAME }} \
             --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
             --output text)
-          echo "bucket=$BUCKET" >> $GITHUB_OUTPUT
-          echo "distribution_id=$DIST_ID" >> $GITHUB_OUTPUT
+
+          echo "bucket=$BUCKET_NAME" >> $GITHUB_OUTPUT
+          echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -70,6 +69,7 @@ jobs:
         run: aws s3 sync dist/ s3://${{ steps.outputs.outputs.bucket }} --delete
 
       - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation \
-          --distribution-id ${{ steps.outputs.outputs.distribution_id }} \
-          --paths "/*"
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.outputs.outputs.distribution_id }} \
+            --paths "/*"
