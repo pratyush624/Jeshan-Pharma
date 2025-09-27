@@ -1,0 +1,82 @@
+# AWSTemplateFormatVersion: "2010-09-09"
+# Transform: AWS::Serverless-2016-10-31
+# Description: React app hosting on S3 + CloudFront with custom domain
+
+# Parameters:
+#   EnvName:
+#     Type: String
+#     AllowedValues:
+#       - staging
+#       - production
+#     Description: "Environment name (staging or production)"
+
+# Resources:
+
+#   ReactAppBucket:
+#     Type: AWS::S3::Bucket
+#     Properties:
+#       BucketName: !Sub "react-app-${EnvName}-${AWS::AccountId}"
+#       AccessControl: Private
+#       PublicAccessBlockConfiguration:
+#         BlockPublicAcls: true
+#         BlockPublicPolicy: true
+#         IgnorePublicAcls: true
+#         RestrictPublicBuckets: true
+
+#   CloudFrontOAI:
+#     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+#     Properties:
+#       CloudFrontOriginAccessIdentityConfig:
+#         Comment: !Sub "OAI for ${EnvName}"
+
+#   ReactAppBucketPolicy:
+#     Type: AWS::S3::BucketPolicy
+#     Properties:
+#       Bucket: !Ref ReactAppBucket
+#       PolicyDocument:
+#         Version: "2012-10-17"
+#         Statement:
+#           - Sid: "AllowCloudFrontAccess"
+#             Effect: Allow
+#             Principal:
+#               CanonicalUser: !GetAtt CloudFrontOAI.S3CanonicalUserId
+#             Action: "s3:GetObject"
+#             Resource: !Sub "${ReactAppBucket.Arn}/*"
+
+#   ReactAppDistribution:
+#     Type: AWS::CloudFront::Distribution
+#     Properties:
+#       DistributionConfig:
+#         Enabled: true
+#         DefaultRootObject: index.html
+#         Aliases:
+#           - jeshanpharma.com
+#           - www.jeshanpharma.com
+#         ViewerCertificate:
+#           AcmCertificateArn: arn:aws:acm:us-east-1:YOUR_CERTIFICATE_ARN   # replace once Issued
+#           SslSupportMethod: sni-only
+#           MinimumProtocolVersion: TLSv1.2_2021
+#         Origins:
+#           - DomainName: !GetAtt ReactAppBucket.RegionalDomainName
+#             Id: ReactAppOrigin
+#             S3OriginConfig:
+#               OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
+#         DefaultCacheBehavior:
+#           TargetOriginId: ReactAppOrigin
+#           ViewerProtocolPolicy: redirect-to-https
+#           AllowedMethods: [GET, HEAD]
+#           CachedMethods: [GET, HEAD]
+#           ForwardedValues:
+#             QueryString: false
+#         PriceClass: PriceClass_100
+
+# Outputs:
+#   BucketName:
+#     Description: "S3 bucket for React app"
+#     Value: !Ref ReactAppBucket
+#   DistributionId:
+#     Description: "CloudFront Distribution ID"
+#     Value: !Ref ReactAppDistribution
+#   DistributionDomainName:
+#     Description: "CloudFront Domain Name"
+#     Value: !GetAtt ReactAppDistribution.DomainName
