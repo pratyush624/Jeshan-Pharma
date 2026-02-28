@@ -1,13 +1,13 @@
-import ComingSoonImage from '../assets/ComingSoon.webp';
+import ComingSoonImage from '../../assets/ComingSoon.webp';
 import './ComingSoon.css';
 
 const ComingSoon = () => {
   return (
     <div className="coming-soon-container">
       <div className="coming-soon-content">
-        <img 
-          src={ComingSoonImage} 
-          alt="Coming Soon" 
+        <img
+          src={ComingSoonImage}
+          alt="Coming Soon"
           className="coming-soon-image"
         />
         <h1 className="coming-soon-title">Coming Soon</h1>
