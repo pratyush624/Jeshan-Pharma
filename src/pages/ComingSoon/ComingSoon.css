@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  min-height: calc(100vh - 60px);
+  min-height: calc(100dvh - 60px); /* Account for navbar height */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 1rem;
   box-sizing: border-box;
