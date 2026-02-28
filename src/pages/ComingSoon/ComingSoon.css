@@ -57,18 +57,18 @@
   .coming-soon-container {
     padding: 0.5rem;
   }
-  
+
   .coming-soon-content {
     max-width: 95%;
     padding: 0.5rem;
   }
-  
+
   .coming-soon-image {
     margin-bottom: 1rem;
     border-radius: 10px;
     max-width: 300px;
   }
-  
+
   .coming-soon-title {
     margin-bottom: 0.75rem;
   }
@@ -79,11 +79,11 @@
   .coming-soon-container {
     padding: 1.5rem;
   }
-  
+
   .coming-soon-content {
     max-width: 85%;
   }
-  
+
   .coming-soon-image {
     max-width: 350px;
     margin-bottom: 1.25rem;
@@ -95,11 +95,11 @@
   .coming-soon-container {
     padding: 2rem;
   }
-  
+
   .coming-soon-content {
     max-width: 600px;
   }
-  
+
   .coming-soon-image {
     max-width: 400px;
     margin-bottom: 1.5rem;
@@ -111,7 +111,7 @@
   .coming-soon-content {
     max-width: 700px;
   }
-  
+
   .coming-soon-image {
     max-width: 450px;
     margin-bottom: 2rem;
@@ -123,12 +123,12 @@
   .coming-soon-container {
     padding: 0.5rem 1rem;
   }
-  
+
   .coming-soon-image {
     max-width: 250px;
     margin-bottom: 0.75rem;
   }
-  
+
   .coming-soon-title {
     margin-bottom: 0.5rem;
   }
