@@ -1,11 +1,13 @@
 import Navbar from './components/Navbar'
-import ComingSoon from './pages/ComingSoon'
+import Banner from './components/Banner'
 
 function App() {
   return (
     <div className="app-container">
       <Navbar />
-      <ComingSoon />
+      <Banner />
+      <main className="main-content">
+      </main>
     </div>
   )
 }

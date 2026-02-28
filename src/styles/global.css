@@ -24,6 +24,19 @@ body {
   min-height: 100dvh;
 }
 
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 1rem;
+  }
+}
+
 /* Prevent zoom on input focus for iOS */
 @media screen and (max-width: 768px) {
   input[type="color"],

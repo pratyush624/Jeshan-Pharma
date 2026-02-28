@@ -1,0 +1,366 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <!-- Background -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a4da2"/>
+      <stop offset="40%" stop-color="#0b3d91"/>
+      <stop offset="100%" stop-color="#062b6e"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ee7ff"/>
+      <stop offset="100%" stop-color="#a0f0ff"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="33%" stop-color="#0a8fff"/>
+      <stop offset="66%" stop-color="#5b4fff"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <!-- Shines -->
+    <linearGradient id="shineL" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="shineR" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.35"/>
+    </linearGradient>
+    <!-- Orange box gradient (Jespro-RD) -->
+    <linearGradient id="orangeBox" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5912a"/>
+      <stop offset="100%" stop-color="#e07420"/>
+    </linearGradient>
+    <linearGradient id="orangeSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d06818"/>
+      <stop offset="100%" stop-color="#c05a10"/>
+    </linearGradient>
+    <!-- Teal box gradient (Jesflam-SP) -->
+    <linearGradient id="tealBox" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a7a8a"/>
+      <stop offset="100%" stop-color="#0d5f6e"/>
+    </linearGradient>
+    <linearGradient id="tealSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0c4e5c"/>
+      <stop offset="100%" stop-color="#083d4a"/>
+    </linearGradient>
+    <!-- Brown bottle (Aptijes) -->
+    <linearGradient id="brownBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a0560a"/>
+      <stop offset="30%" stop-color="#8b4508"/>
+      <stop offset="100%" stop-color="#6e3506"/>
+    </linearGradient>
+    <linearGradient id="brownShine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+      <stop offset="40%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+    </linearGradient>
+    <!-- White spray bottle -->
+    <linearGradient id="sprayBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </linearGradient>
+    <!-- Glows -->
+    <radialGradient id="glow1" cx="0.35" cy="0.5" r="0.4">
+      <stop offset="0%" stop-color="#041838" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#041838" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.7" cy="0.3" r="0.4">
+      <stop offset="0%" stop-color="white" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Foil strip gradient -->
+    <linearGradient id="foilGrad" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#d8d8d8"/>
+      <stop offset="30%" stop-color="#c0c0c0"/>
+      <stop offset="50%" stop-color="#e8e8e8"/>
+      <stop offset="70%" stop-color="#b0b0b0"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+    <linearGradient id="foilHighlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- Heart gradient for logo -->
+    <linearGradient id="heartGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff4d4d"/>
+      <stop offset="100%" stop-color="#cc2233"/>
+    </linearGradient>
+    <!-- DNA pattern -->
+    <pattern id="dnaP" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="white" opacity="0.03"/>
+      <circle cx="37" cy="37" r="1" fill="white" opacity="0.03"/>
+    </pattern>
+    <clipPath id="bannerClip">
+      <rect x="0" y="0" width="1200" height="400" rx="18" ry="18"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#bannerClip)">
+    <!-- Background -->
+    <rect width="1200" height="400" fill="url(#bgGrad)"/>
+    <rect width="1200" height="400" fill="url(#dnaP)"/>
+    <ellipse cx="350" cy="200" rx="380" ry="320" fill="url(#glow1)"/>
+    <ellipse cx="850" cy="130" rx="300" ry="300" fill="url(#glow2)"/>
+
+    <!-- Subtle medical crosses -->
+    <g opacity="0.05" fill="white">
+      <g transform="translate(25,20)"><rect x="10" y="0" width="5" height="25" rx="2.5"/><rect x="0" y="10" width="25" height="5" rx="2.5"/></g>
+      <g transform="translate(580,15)"><rect x="6" y="0" width="3" height="15" rx="1.5"/><rect x="0" y="6" width="15" height="3" rx="1.5"/></g>
+      <g transform="translate(1145,350)"><rect x="8" y="0" width="4" height="20" rx="2"/><rect x="0" y="8" width="20" height="4" rx="2"/></g>
+    </g>
+
+    <!-- Floating particles -->
+    <circle cx="520" cy="35" r="2.5" fill="#5ee7ff" opacity="0.15"/>
+    <circle cx="1130" cy="80" r="3" fill="#5ee7ff" opacity="0.12"/>
+    <circle cx="480" cy="360" r="2" fill="#5ee7ff" opacity="0.1"/>
+    <circle cx="1080" cy="310" r="2.5" fill="#f5912a" opacity="0.12"/>
+
+    <!-- ==================== PRODUCTS ILLUSTRATION ==================== -->
+    <!-- Ground shadow -->
+    <ellipse cx="270" cy="360" rx="230" ry="20" fill="#020e2a" opacity="0.5"/>
+
+    <!-- ===== 1. JESPRO-RD (Orange Box) - Back left ===== -->
+    <g transform="translate(70, 80)">
+      <!-- Box top -->
+      <polygon points="10,0 130,0 150,15 30,15" fill="#f5a04a" opacity="0.8"/>
+      <!-- Box front (white with orange) -->
+      <rect x="10" y="0" width="120" height="200" rx="3" fill="white"/>
+      <!-- Orange top section -->
+      <rect x="10" y="0" width="120" height="45" rx="3" fill="url(#orangeBox)"/>
+      <rect x="10" y="42" width="120" height="3" fill="#e07420" opacity="0.3"/>
+      <!-- Rainbow stripe on left -->
+      <rect x="10" y="0" width="3" height="200" fill="#f5912a"/>
+      <rect x="13" y="0" width="1.5" height="200" fill="#4CAF50"/>
+      <rect x="14.5" y="0" width="1.5" height="200" fill="#2196F3"/>
+      <rect x="16" y="0" width="1" height="200" fill="#9C27B0"/>
+      <!-- Text on front -->
+      <text x="30" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="7" fill="white" opacity="0.9">Rx</text>
+      <text x="30" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="7.5" fill="#333" font-weight="600">Enteric Coated</text>
+      <text x="30" y="86" font-family="'Segoe UI', Arial, sans-serif" font-size="7.5" fill="#333" font-weight="600">Rabeprazole Sodium</text>
+      <text x="30" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1a1a1a" font-weight="800">Jespro-RD</text>
+      <!-- Stomach icon -->
+      <g transform="translate(85, 130)" opacity="0.5">
+        <path d="M0,10 Q0,0 10,0 Q20,0 20,12 Q20,25 10,28 Q5,25 5,18" fill="none" stroke="#e07420" stroke-width="1.5"/>
+      </g>
+      <!-- Box right side -->
+      <polygon points="130,0 150,15 150,215 130,200" fill="url(#orangeSide)"/>
+      <!-- 10x10 text -->
+      <text x="135" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="6" fill="white" font-weight="600" transform="rotate(10, 135, 50)">10x10</text>
+      <!-- Shine overlay -->
+      <rect x="10" y="0" width="120" height="200" rx="3" fill="url(#shineL)" opacity="0.15"/>
+    </g>
+
+    <!-- ===== 2. JESFLAM-SP (Teal Box) - Center ===== -->
+    <g transform="translate(175, 60)">
+      <!-- Box top -->
+      <polygon points="10,0 140,0 162,18 32,18" fill="#1a8a9a" opacity="0.7"/>
+      <!-- Box front (white with teal) -->
+      <rect x="10" y="0" width="130" height="225" rx="3" fill="white"/>
+      <!-- Teal top section -->
+      <rect x="10" y="0" width="130" height="50" rx="3" fill="url(#tealBox)"/>
+      <!-- Rainbow stripe -->
+      <rect x="125" y="0" width="2" height="225" fill="#1a7a8a"/>
+      <rect x="127" y="0" width="1.5" height="225" fill="#4CAF50"/>
+      <rect x="128.5" y="0" width="1.5" height="225" fill="#f5c842"/>
+      <rect x="130" y="0" width="1" height="225" fill="#9C27B0"/>
+      <!-- Text -->
+      <text x="25" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="7" fill="white" opacity="0.9">Rx</text>
+      <text x="25" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#333" font-weight="600">Aceclofenac,</text>
+      <text x="25" y="92" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#333" font-weight="600">Paracetamol &amp;</text>
+      <text x="25" y="104" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#333" font-weight="600">Serratiopeptidase</text>
+      <text x="25" y="132" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#0d3d4a" font-weight="800">Jesflam-SP</text>
+      <!-- Running man silhouette -->
+      <g transform="translate(60, 150) scale(0.6)" fill="#0d5f6e" opacity="0.4">
+        <!-- Head -->
+        <circle cx="35" cy="5" r="6"/>
+        <!-- Body -->
+        <path d="M35,11 L35,35 M35,18 L22,28 M35,18 L48,28 M35,35 L20,55 M35,35 L50,50" fill="none" stroke="#0d5f6e" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+      <!-- Speed lines -->
+      <g transform="translate(40, 175)" opacity="0.15" stroke="#0d5f6e" stroke-width="1.2">
+        <line x1="0" y1="0" x2="25" y2="0"/>
+        <line x1="5" y1="5" x2="30" y2="5"/>
+        <line x1="0" y1="10" x2="20" y2="10"/>
+      </g>
+      <!-- Box right side -->
+      <polygon points="140,0 162,18 162,243 140,225" fill="url(#tealSide)"/>
+      <text x="145" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="6.5" fill="white" font-weight="600" transform="rotate(8, 145, 55)">10x10</text>
+      <!-- Shine -->
+      <rect x="10" y="0" width="130" height="225" rx="3" fill="url(#shineL)" opacity="0.12"/>
+    </g>
+
+    <!-- ===== FOIL STRIP (in front of boxes) ===== -->
+    <g transform="translate(60, 290) rotate(-3)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="url(#foilGrad)"/>
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="url(#foilHighlight)" opacity="0.3"/>
+      <!-- Blister bumps -->
+      <g>
+        <ellipse cx="20" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="20" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="48" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="48" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="76" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="76" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="104" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="104" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="132" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="132" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="160" cy="18" rx="12" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="160" cy="15" rx="8" ry="6" fill="white" opacity="0.3"/>
+        <ellipse cx="185" cy="18" rx="11" ry="13" fill="#d0d0d0" stroke="#b8b8b8" stroke-width="0.5"/>
+        <ellipse cx="185" cy="15" rx="7" ry="6" fill="white" opacity="0.3"/>
+      </g>
+    </g>
+
+    <!-- ===== 3. NASOJES-S (Nasal Spray Bottle) ===== -->
+    <g transform="translate(370, 95)">
+      <!-- Bottle body -->
+      <rect x="0" y="80" width="48" height="155" rx="10" fill="url(#sprayBottle)"/>
+      <rect x="0" y="80" width="48" height="155" rx="10" fill="url(#shineL)" opacity="0.2"/>
+      <!-- Nozzle neck -->
+      <rect x="14" y="45" width="20" height="38" rx="3" fill="#e8e8e8"/>
+      <!-- Spray nozzle top -->
+      <rect x="10" y="30" width="28" height="18" rx="4" fill="#f0f0f0"/>
+      <rect x="10" y="30" width="28" height="18" rx="4" fill="url(#shineL)" opacity="0.15"/>
+      <!-- Spray tip -->
+      <rect x="30" y="34" width="14" height="10" rx="3" fill="#e0e0e0"/>
+      <!-- Ridges on nozzle -->
+      <line x1="12" y1="35" x2="12" y2="45" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="15" y1="35" x2="15" y2="45" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="18" y1="35" x2="18" y2="45" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="21" y1="35" x2="21" y2="45" stroke="#d0d0d0" stroke-width="0.8"/>
+      <!-- Label area -->
+      <rect x="4" y="110" width="40" height="80" rx="3" fill="white"/>
+      <!-- Blue dot pattern (nose icon feel) -->
+      <g transform="translate(12, 125)" fill="#1565C0" opacity="0.5">
+        <circle cx="0" cy="0" r="1.2"/>
+        <circle cx="4" cy="0" r="1.2"/>
+        <circle cx="8" cy="0" r="1.2"/>
+        <circle cx="12" cy="0" r="1.2"/>
+        <circle cx="16" cy="0" r="1.2"/>
+        <circle cx="2" cy="4" r="1.2"/>
+        <circle cx="6" cy="4" r="1.2"/>
+        <circle cx="10" cy="4" r="1.2"/>
+        <circle cx="14" cy="4" r="1.2"/>
+        <circle cx="4" cy="8" r="1.2"/>
+        <circle cx="8" cy="8" r="1.2"/>
+        <circle cx="12" cy="8" r="1.2"/>
+        <circle cx="6" cy="12" r="1.2"/>
+        <circle cx="10" cy="12" r="1.2"/>
+        <circle cx="8" cy="16" r="1.2"/>
+      </g>
+      <!-- Brand text -->
+      <text x="24" y="160" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="7" fill="#1565C0" font-weight="700">Nasojes</text>
+      <text x="24" y="170" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="5" fill="#999">20ml</text>
+      <!-- Blue stripe at bottom of label -->
+      <rect x="4" y="177" width="40" height="10" rx="0 0 3 3" fill="#1976D2" opacity="0.7"/>
+      <!-- Spray mist particles -->
+      <g opacity="0.25">
+        <circle cx="52" cy="32" r="2" fill="#b0d8ff"/>
+        <circle cx="58" cy="28" r="1.5" fill="#b0d8ff"/>
+        <circle cx="55" cy="38" r="1.8" fill="#b0d8ff"/>
+        <circle cx="62" cy="33" r="1.2" fill="#b0d8ff"/>
+        <circle cx="60" cy="25" r="1" fill="#b0d8ff"/>
+        <circle cx="65" cy="30" r="0.8" fill="#b0d8ff"/>
+      </g>
+    </g>
+
+    <!-- ===== 4. APTIJES DROPS (Brown Bottle) ===== -->
+    <g transform="translate(445, 115)">
+      <!-- Bottle body -->
+      <rect x="0" y="50" width="42" height="130" rx="8" fill="url(#brownBottle)"/>
+      <rect x="0" y="50" width="42" height="130" rx="8" fill="url(#brownShine)" opacity="0.3"/>
+      <!-- Bottle neck -->
+      <rect x="12" y="28" width="18" height="25" rx="3" fill="#7a3e06"/>
+      <!-- Red cap -->
+      <rect x="8" y="10" width="26" height="22" rx="5" fill="#cc2233"/>
+      <rect x="8" y="10" width="26" height="22" rx="5" fill="url(#shineL)" opacity="0.2"/>
+      <!-- Cap ridges -->
+      <line x1="10" y1="15" x2="10" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <line x1="14" y1="15" x2="14" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <line x1="18" y1="15" x2="18" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <line x1="22" y1="15" x2="22" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <line x1="26" y1="15" x2="26" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <line x1="30" y1="15" x2="30" y2="28" stroke="#a01a28" stroke-width="0.8"/>
+      <!-- White label -->
+      <rect x="4" y="80" width="34" height="70" rx="3" fill="white"/>
+      <!-- Red badge for ml -->
+      <circle cx="30" cy="88" r="7" fill="#cc2233"/>
+      <text x="30" y="91" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="5" fill="white" font-weight="700">30ml</text>
+      <!-- Brand text -->
+      <text x="21" y="115" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#cc2233" font-weight="800">Aptijes</text>
+      <text x="21" y="125" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="5" fill="#333" font-weight="600" letter-spacing="2">DROPS</text>
+      <!-- Red stripe at bottom -->
+      <rect x="4" y="140" width="34" height="8" rx="0 0 3 3" fill="#cc2233" opacity="0.8"/>
+      <!-- Green swoosh under brand -->
+      <path d="M8,130 Q21,137 34,130" fill="none" stroke="#4CAF50" stroke-width="1.2" opacity="0.6"/>
+      <!-- Dropper -->
+      <g transform="translate(42, 65) rotate(25)">
+        <!-- Rubber bulb -->
+        <ellipse cx="5" cy="0" rx="6" ry="9" fill="#222"/>
+        <!-- Glass tube -->
+        <rect x="3" y="8" width="4" height="45" rx="1" fill="#e8e0d0" opacity="0.7"/>
+        <rect x="3" y="8" width="4" height="45" rx="1" fill="url(#shineL)" opacity="0.3"/>
+        <!-- Liquid drop -->
+        <ellipse cx="5" cy="56" rx="2.5" ry="3" fill="#f5912a" opacity="0.6"/>
+      </g>
+    </g>
+
+    <!-- ===== Floating capsules around products ===== -->
+    <!-- Orange capsule (Jespro) -->
+    <g transform="translate(130, 45) rotate(25)">
+      <rect x="0" y="0" width="30" height="12" rx="6" fill="#f5912a"/>
+      <rect x="15" y="0" width="15" height="12" rx="6" fill="#ffe0a0"/>
+    </g>
+    <!-- Teal capsule (Jesflam) -->
+    <g transform="translate(350, 55) rotate(-15)">
+      <rect x="0" y="0" width="26" height="10" rx="5" fill="#1a7a8a"/>
+      <rect x="13" y="0" width="13" height="10" rx="5" fill="#a0dce4"/>
+    </g>
+    <!-- Small round pill -->
+    <circle cx="500" cy="80" r="7" fill="#5ee7ff" opacity="0.35"/>
+    <line x1="495" y1="80" x2="505" y2="80" stroke="#3dd4ea" stroke-width="0.8" opacity="0.4"/>
+    <!-- Tiny blue drop -->
+    <ellipse cx="460" cy="340" rx="4" ry="5" fill="#1976D2" opacity="0.25"/>
+
+    <!-- ==================== RIGHT: TEXT CONTENT ==================== -->
+    <g transform="translate(840, 195)">
+      <!-- Heart + Cross logo -->
+      <g transform="translate(-14, -125) scale(0.55)">
+        <path d="M14,26 C14,26 2,18 2,10 C2,6 5,2 9,2 C11.5,2 13.5,4 14,6 C14.5,4 16.5,2 19,2 C23,2 26,6 26,10 C26,18 14,26 14,26Z" fill="url(#heartGrad)" opacity="0.9"/>
+        <rect x="12" y="8" width="4" height="12" rx="1" fill="white" opacity="0.85"/>
+        <rect x="8" y="12" width="12" height="4" rx="1" fill="white" opacity="0.85"/>
+      </g>
+
+      <!-- Decorative line -->
+      <line x1="-50" y1="-110" x2="50" y2="-110" stroke="#5ee7ff" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+
+      <!-- JESHAN -->
+      <text x="0" y="-35" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Helvetica, sans-serif" font-size="62" font-weight="900" letter-spacing="3" fill="white">
+        JESHAN
+      </text>
+      <!-- PHARMA -->
+      <text x="0" y="30" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="10" fill="url(#titleGrad)">
+        PHARMA
+      </text>
+
+      <!-- Divider with dot -->
+      <line x1="-90" y1="55" x2="90" y2="55" stroke="#5ee7ff" stroke-width="0.8" stroke-linecap="round" opacity="0.2"/>
+      <circle cx="0" cy="55" r="2.5" fill="#5ee7ff" opacity="0.3"/>
+      <circle cx="-95" cy="55" r="1.2" fill="#5ee7ff" opacity="0.15"/>
+      <circle cx="95" cy="55" r="1.2" fill="#5ee7ff" opacity="0.15"/>
+
+      <!-- Slogan -->
+      <text x="0" y="82" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Helvetica, sans-serif" font-size="14" font-weight="600" fill="#b8d4f0" letter-spacing="5">
+        CREATING &amp; CARING FOR LIFE
+      </text>
+    </g>
+
+    <!-- Bottom accent line -->
+    <rect x="0" y="395" width="1200" height="5" fill="url(#accentLine)"/>
+  </g>
+</svg>
