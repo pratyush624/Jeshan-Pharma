@@ -148,9 +148,11 @@
 
   .nav-link {
     display: block;
+    width: 100%;
     padding: 0.85rem 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 1.05rem;
+    text-align: center;
   }
 
   .nav-link::after {
