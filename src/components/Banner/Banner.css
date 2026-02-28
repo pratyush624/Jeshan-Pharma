@@ -1,0 +1,24 @@
+.banner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .banner-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-image {
+    max-height: 200px;
+  }
+}
