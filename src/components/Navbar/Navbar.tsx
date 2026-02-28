@@ -7,6 +7,12 @@ const Navbar = () => {
 
   const closeMenu = () => setIsOpen(false);
 
+  const scrollToProducts = () => {
+    closeMenu();
+    const section = document.getElementById('products');
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -28,10 +34,7 @@ const Navbar = () => {
 
         <ul className={`nav-links ${isOpen ? 'nav-open' : ''}`}>
           <li>
-            <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
-          </li>
-          <li>
-            <Link to="/products" className="nav-link" onClick={closeMenu}>Products</Link>
+            <button type="button" className="nav-link" onClick={scrollToProducts}>Products</button>
           </li>
           <li>
             <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
