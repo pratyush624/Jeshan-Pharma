@@ -7,9 +7,9 @@ const Navbar = () => {
 
   const closeMenu = () => setIsOpen(false);
 
-  const scrollToProducts = () => {
+  const scrollToSection = (id: string) => {
     closeMenu();
-    const section = document.getElementById('products');
+    const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -34,10 +34,10 @@ const Navbar = () => {
 
         <ul className={`nav-links ${isOpen ? 'nav-open' : ''}`}>
           <li>
-            <button type="button" className="nav-link" onClick={scrollToProducts}>Products</button>
+            <button type="button" className="nav-link" onClick={() => scrollToSection('products')}>Products</button>
           </li>
           <li>
-            <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
+            <button type="button" className="nav-link" onClick={() => scrollToSection('contact')}>Contact</button>
           </li>
         </ul>
       </div>

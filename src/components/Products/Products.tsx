@@ -9,7 +9,7 @@ const Products = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className={`product-card ${product.orientation}`}
+            className="product-card"
           >
             <div className="product-image-wrapper">
               <img

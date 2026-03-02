@@ -1,1 +1,1 @@
-export type { Product, ImageOrientation } from './product';
+export type { Product } from './product';
