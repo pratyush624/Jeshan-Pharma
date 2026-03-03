@@ -1,15 +1,40 @@
+import { useEffect, useRef } from 'react';
 import { products } from '../../constants';
 import './Products.css';
 
 const Products = () => {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="products" className="products-section">
       <h2 className="products-title">Our Products</h2>
       <div className="products-grid">
-        {products.map((product) => (
+        {products.map((product, index) => (
           <div
             key={product.id}
-            className="product-card"
+            ref={(el) => { cardsRef.current[index] = el; }}
+            className="product-card fade-in"
+            style={{ transitionDelay: `${(index % 4) * 100}ms` }}
           >
             <div className="product-image-wrapper">
               <img
